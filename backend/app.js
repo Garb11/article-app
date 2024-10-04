@@ -1,6 +1,7 @@
 const express = require('express');
 const retry = require('async-retry');
 
+const { errorHandle, logError } = require('./util/errorUtil');
 const db = require('./models')
 
 
@@ -10,6 +11,8 @@ const PORT = 3000;
 const app = express();
 
 app.use(express.json());
+app.use((err, req, res, n) => errorHandle(err, req, res));
+
 
 (async () => {
     try {
@@ -26,5 +29,6 @@ app.use(express.json());
         minTimeout: 2400,
       });
     } catch (err) {
+        logError(err, 'Unable to connect to the database');
     }
 })();
