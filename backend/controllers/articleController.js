@@ -1,69 +1,45 @@
-const { validationResult } = require("express-validator");
-
-const { errorHandle } = require('../util/errorUtil');
+const { errorWrapper } = require('../util/errorUtil');
 const { Article } = require('../models');
 
-// READ 
-exports.getArticle = async (req, res) => {
-  try {   
-    const article = req.article;
-    res.status(200).json(article);  
-  } catch (err) {
-    errorHandle(err, req, res);
-    return res;
-  }
-};
 
 // CREAT
-exports.createArticle = async (req, res) => {
-  try {
-    const errors = validationResult(req);
-    if (!errors.isEmpty()) { return res.status(400).json({errors: errors.array()}); }
+exports.create = async (req, res) => 
+  errorWrapper(req,res, async () => {
     const { title, content } = req.body;
     const article = await Article.create({ title, content });
     res.status(201).json(article);
-  } catch (err) {
-    errorHandle(err, req, res);
-    return res;
-  }
-};
+});
+
+// READ 
+exports.get = async (req, res) => 
+  errorWrapper(req,res, async () => {
+    res.status(200).json(req.article);  
+});
 
 // READ ALL
-exports.getAllArticles = async (_, res) => {
-  try {
+exports.getAll = async (req, res) => 
+  errorWrapper(req,res, async () => {
     const articles = await Article.findAll();
     res.status(200).json(articles);
-  } catch (err) {
-    errorHandle(err, req, res);
-    return res;
-  }
-};
+});
 
 // UPDATE
-exports.updateArticle = async (req, res) => {
-  try {
-    const errors = validationResult(req);
-    if (!errors.isEmpty()) { return res.status(400).json({errors: errors.array()});}
+exports.update = async (req, res) => 
+  errorWrapper(req,res, async () => {
     const { title, content } = req.body;
     const article = req.article;
-    article.title = title || article.title;
+
+    // overwrite if empty
+    article.title = title || article.title; 
     article.content = content || article.content;
+
     const updatedArticle = await article.save();
     res.status(200).json(updatedArticle);
-  } catch (err) {
-    errorHandle(err, req, res);
-    return res;
-  }
-};
+});
 
 // DELETE
-exports.deleteArticle = async (req, res) => {
-  try {
-    const article = req.article;
-    await article.destroy();
+exports.delete = async (req, res) => 
+  errorWrapper(req,res, async () => {
+    await req.article.destroy();
     res.status(204).json();
-  } catch (err) {
-    errorHandle(err, req, res);
-    return res;
-  }
-};
+});

@@ -3,7 +3,7 @@ const router = express.Router();
 const { body } = require('express-validator');
 
 const articleController = require('../controllers/articleController');
-const findArticle = require('../middleware/getArticleMiddleware');
+const findArticle = require('../middleware/articleMiddleware');
 
 
 router.post('',
@@ -11,11 +11,11 @@ router.post('',
         body('title').isString().withMessage('Title must be a string'),
         body('content').isString().withMessage('Content must be a string'),
     ],
-    articleController.createArticle);
+    articleController.create);
 
 router.get('/:articleId', 
     findArticle,
-    articleController.getArticle
+    articleController.get
 );
 
 router.patch('/:articleId', 
@@ -30,10 +30,10 @@ router.patch('/:articleId',
         }),
     ],
     findArticle,
-    articleController.updateArticle);
+    articleController.update);
 
 router.delete('/:articleId', 
     findArticle,
-    articleController.deleteArticle);
+    articleController.delete);
 
 module.exports = router;

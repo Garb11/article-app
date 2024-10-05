@@ -2,24 +2,22 @@ const express = require('express');
 const retry = require('async-retry');
 
 const { errorHandle, logError } = require('./util/errorUtil');
-const db = require('./models')
+const db = require('./models');
 
 const articleRoutes = require('./routes/articleRoutes');
 const articlesRoutes = require('./routes/articlesRoutes');
-const findArticle = require('./middleware/getArticleMiddleware');
 
 
-const env = process.env.NODE_ENV
+const env = process.env.NODE_ENV;
 const PORT = 3000;
 
 const app = express();
-
 
 app.use(express.json());
 app.use('/article', articleRoutes);
 app.use('/articles', articlesRoutes);
 
-app.use((req, res, n) => {res.status(404).json({ error: 'Not Found' });});
+app.use((req, res, n) => {res.status(404).json({error:'Not Found'});});
 app.use((err, req, res, n) => errorHandle(err, req, res));
 
 
