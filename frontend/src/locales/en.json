@@ -15,5 +15,9 @@
   "action": {
     "update": "update",
     "create": "create"
+  },
+  "name": {
+    "app_title": "Articles-app",
+    "articles_page": "articles"
   }
 }
