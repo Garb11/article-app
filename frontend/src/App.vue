@@ -31,5 +31,17 @@ const router = useRouter();
 const error = ref(undefined);
 
 const navigateToPage = (page) => router.push({ name: page });
+const fetchArticles = async () => {
+  try {
+    await store.dispatch("fetchAllArticles");
+    error.value = undefined;
+  } catch (err) {
+    error.value = err;
+  }
+};
+const refetchInterval = setInterval(fetchArticles, refetchTimeout);
 
+onBeforeUnmount(() => {
+  clearInterval(refetchInterval);
+});
 </script>
