@@ -2,7 +2,8 @@
   "label": {
     "article": "article",
     "title": "title",
-    "content": "content"
+    "content": "content",
+    "comment": "comment"
   },
   "validator": {
     "title_required": "title is required",
