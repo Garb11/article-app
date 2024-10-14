@@ -1,0 +1,37 @@
+{
+  "message": {
+    "empty_articles": "The list of articles is empty!"
+  },
+  "label": {
+    "start_time": "date to",
+    "end_time": "date from",
+    "analytic_title": "Search comments",
+    "article": "article",
+    "title": "title",
+    "content": "content",
+    "comment": "comment",
+    "loading": "loading"
+  },
+  "validator": {
+    "title_required": "title is required",
+    "content_required": "content is required"
+  },
+  "error": {
+    "success": "success"
+  },
+  "action": {
+    "update": "update",
+    "create": "create",
+    "edit": "edit",
+    "delete": "delete",
+    "add_comment": "add comment",
+    "add_article": "add article",
+    "search": "search"
+  },
+  "name": {
+    "app_title": "Articles-app",
+    "preview_page": "preview",
+    "analytic_page": "analytic",
+    "articles_page": "articles"
+  }
+}
