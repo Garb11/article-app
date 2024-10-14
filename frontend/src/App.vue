@@ -43,11 +43,10 @@ const fetchArticles = async () => {
     error.value = undefined;
   } catch (err) {
     error.value = err;
+    setTimeout(fetchArticles, refetchTimeout);
   }
 };
-const refetchInterval = setInterval(fetchArticles, refetchTimeout);
 
 onBeforeUnmount(() => {
-  clearInterval(refetchInterval);
 });
 </script>
