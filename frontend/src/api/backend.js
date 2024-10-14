@@ -1,7 +1,11 @@
 import axios from "axios";
 
+const BASE_URL = import.meta.env.VITE_BACKEND_BASE_URL;
+const PORT = import.meta.env.VITE_BACKEND_PORT;
+const URL = BASE_URL && PORT ? BASE_URL+':'+PORT : undefined;
+
 const client = axios.create({
-  baseURL: `http://localhost:3000`,
+  baseURL: URL || `http://localhost:3000`,
   timeout: 4000,
 });
 

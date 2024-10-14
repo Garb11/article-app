@@ -7,6 +7,8 @@ COPY package*.json ./
 RUN npm install
 
 COPY . .
+ARG VITE_BACKEND_PORT
+ARG VITE_BACKEND_BASE_URL  
 RUN npm run build
 
 

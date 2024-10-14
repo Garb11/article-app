@@ -1,5 +1,6 @@
 const express = require("express");
 const retry = require("async-retry");
+const cors = require('cors');
 
 const { errorHandle, logError } = require("./util/errorUtil");
 const db = require("./models");
@@ -14,6 +15,11 @@ const env = process.env.NODE_ENV;
 const PORT = 3000;
 
 const app = express();
+
+app.use(cors({
+  origin: process.env.CORS_ORIGIN || 'http://localhost',
+  methods: '*',
+}));
 
 app.use(express.json());
 app.use("/article", articleRoutes);
