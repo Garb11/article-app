@@ -3,7 +3,14 @@ import { createRouter, createWebHistory } from "vue-router/auto";
 import previewRoutes from "./preview";
 import featuresRoutes from "./features";
 
-const routes = [...previewRoutes, ...featuresRoutes];
+const routes = [
+  ...previewRoutes,
+  ...featuresRoutes,
+  {
+    path: "/:catchAll(.*)",
+    redirect: "preview",
+  },
+];
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
