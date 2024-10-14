@@ -9,6 +9,9 @@
       <v-btn text @click="navigateToPage('articles')">{{
         $t("name.articles_page")
       }}</v-btn>
+      <v-btn text @click="navigateToPage('analytic')">{{
+        $t("name.analytic_page")
+      }}</v-btn>
     </v-app-bar>
     <v-main>
       <v-container v-if="error">

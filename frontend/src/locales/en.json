@@ -3,6 +3,9 @@
     "empty_articles": "The list of articles is empty!"
   },
   "label": {
+    "start_time": "date to",
+    "end_time": "date from",
+    "analytic_title": "Search comments",
     "article": "article",
     "title": "title",
     "content": "content",
@@ -28,6 +31,7 @@
   "name": {
     "app_title": "Articles-app",
     "preview_page": "preview",
+    "analytic_page": "analytic",
     "articles_page": "articles"
   }
 }
