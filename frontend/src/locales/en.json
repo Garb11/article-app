@@ -1,9 +1,13 @@
 {
+  "message": {
+    "empty_articles": "The list of articles is empty!"
+  },
   "label": {
     "article": "article",
     "title": "title",
     "content": "content",
-    "comment": "comment"
+    "comment": "comment",
+    "loading": "loading"
   },
   "validator": {
     "title_required": "title is required",
@@ -14,10 +18,16 @@
   },
   "action": {
     "update": "update",
-    "create": "create"
+    "create": "create",
+    "edit": "edit",
+    "delete": "delete",
+    "add_comment": "add comment",
+    "add_article": "add article",
+    "search": "search"
   },
   "name": {
     "app_title": "Articles-app",
+    "preview_page": "preview",
     "articles_page": "articles"
   }
 }

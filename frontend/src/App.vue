@@ -3,6 +3,9 @@
     <v-app-bar app>
       <v-toolbar-title>{{ $t("name.app_title") }}</v-toolbar-title>
       <v-spacer></v-spacer>
+      <v-btn text @click="navigateToPage('preview')">{{
+        $t("name.preview_page")
+      }}</v-btn>
       <v-btn text @click="navigateToPage('articles')">{{
         $t("name.articles_page")
       }}</v-btn>
