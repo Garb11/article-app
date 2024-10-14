@@ -8,7 +8,7 @@ const findArticle = require('./articleMiddleware');
 const fMiddleware = async (req, res, next) => 
   errorWrapper(req,res, async () => {
     const comment = await Comment.findByPk(req.params.commentId);
-    if ((comment === undefined ) || (req.article.id !== comment.articleId)){
+    if ((comment == undefined ) || (req.article.id !== comment.articleId)){
       return res.status(404).json({ errors: [{msg: 'Comment not found'}] });}
     req.comment = comment;
     next();
