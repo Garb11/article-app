@@ -18,7 +18,7 @@ async function errorWrapper(req, res, f) {
 
 function errorHandle(err, req, res) {
     logError(err, {req, res});
-    res.status(500).json({message:'Internal Server Error'});
+    res.status(500).json({errors: [{msg: 'Internal Server Error'}] });
 }
 
 
