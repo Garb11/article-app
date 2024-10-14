@@ -1,0 +1,21 @@
+{
+    "name": "backend",
+    "version": "1.0.0",
+    "main": "app.js",
+    "scripts": {
+        "start": "node app.js",
+        "migrate": "sequelize db:migrate",
+        "seed": "sequelize db:seed:all"
+    },
+    "devDependencies": {
+        "sequelize-cli": "^6.6.2"
+    },
+    "dependencies": {
+        "async-retry": "^1.3.3",
+        "express": "^4.21.0",
+        "express-validator": "^7.2.0",
+        "pg": "^8.13.0",
+        "pg-hstore": "^2.3.4",
+        "sequelize": "^6.37.3"
+    }
+}

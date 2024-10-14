@@ -1,3 +1,6 @@
+*.session.sql
+
+
 # Logs
 logs
 *.log
