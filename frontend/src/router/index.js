@@ -1,8 +1,8 @@
 import { createRouter, createWebHistory } from "vue-router/auto";
 
-const routes = [
+import featuresRoutes from "./features";
 
-];
+const routes = [...featuresRoutes];
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
