@@ -1,1 +1,18 @@
-{}
+{
+  "label": {
+    "article": "article",
+    "title": "title",
+    "content": "content"
+  },
+  "validator": {
+    "title_required": "title is required",
+    "content_required": "content is required"
+  },
+  "error": {
+    "success": "success"
+  },
+  "action": {
+    "update": "update",
+    "create": "create"
+  }
+}
